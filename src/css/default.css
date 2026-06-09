@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (width <= 500px) {
+    .project-container {
+        display: grid;
+        grid-template: repeat(6, 1fr) / 1fr;
+    }
+}
+
+@media screen and (500px < width <= 1000px) {
+    .project-container {
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    }
+}
+
+@media screen and (width > 1000px) {
+    .project-container {
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    }
+}
