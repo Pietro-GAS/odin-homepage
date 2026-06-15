@@ -1,13 +1,90 @@
-body {
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body, header, .svg-container, .header-content, main, footer, .footer-content {
     display: flex;
     flex-direction: column;
 }
 
-@media screen and (width <= 500px) {
-    .project-container {
-        display: grid;
-        grid-template: repeat(6, 1fr) / 1fr;
-    }
+path {
+    fill: #5F9CC9;
+}
+
+header, .svg-container, .header-content, main, footer, .footer-content {
+    align-items: center;
+    gap: 10px;
+}
+
+.header-content, main, .footer-content {
+    padding: 20px;
+}
+
+.svg-container{
+    width: 100vw;
+    height: 550px;
+}
+
+/*
+.picture {
+    transform: translateY(-300px);
+}
+    */
+.picture {
+    background-color: white;
+    border: solid 1px black;
+    height: 500px;
+    width: 300px;
+}
+
+
+.svg-container .picture {
+    position: absolute;
+    top: 10px;
+}
+
+/*
+header {
+    background-color: #5F9CC9;
+}
+
+header::after {
+    content: "";
+    background-color: white;
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    transform: skew(-30deg);
+}
+*/
+
+.project-container {  
+    display: grid;
+    grid-template: repeat(6, 1fr) / 1fr;
+    gap: 40px;    
+}
+
+.project {
+    border: 1px solid gray;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 20%);
+}
+
+.project-details {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer {
+    background-color: #5F9CC9;
 }
 
 @media screen and (500px < width <= 1000px) {
