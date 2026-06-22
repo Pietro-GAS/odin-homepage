@@ -1,19 +1,50 @@
+:root{
+    --bg: #5F9CC9;
+    --bg-transparent: rgba(255, 255, 255, 50%);
+    --shadow: rgba(0, 0, 0, 30%);
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/PlayfairDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+        url('../fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: 'Roboto';
 }
 
-body, header, .svg-container, .header-content, main, footer, .footer-content {
+h1 {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display';
+    font-weight: 500;
+}
+
+body, header, .svg-container, .header-content, main, footer, .footer-content,.picture-container,  picture {
     display: flex;
     flex-direction: column;
 }
 
 path {
-    fill: #5F9CC9;
+    fill: var(--bg);
 }
 
-header, .svg-container, .header-content, main, footer, .footer-content {
+header, .svg-container, .header-content, main, footer, .footer-content, .picture-container {
     align-items: center;
     gap: 10px;
 }
@@ -22,42 +53,51 @@ header, .svg-container, .header-content, main, footer, .footer-content {
     padding: 20px;
 }
 
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .svg-container{
     width: 100vw;
-    height: 550px;
 }
 
-/*
-.picture {
-    transform: translateY(-300px);
-}
-    */
-.picture {
-    background-color: white;
-    border: solid 1px black;
-    height: 500px;
-    width: 300px;
+.svg-container svg {
+    filter: drop-shadow(0 0px 3px);
 }
 
-
-.svg-container .picture {
+.picture-container {
+    width: 100vw;
     position: absolute;
-    top: 10px;
+    top: 20px;
 }
 
-/*
-header {
-    background-color: #5F9CC9;
+.svg-container img {
+    width: 85vw;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px 0px var(--shadow);
 }
 
-header::after {
-    content: "";
-    background-color: white;
+.my-name {
     position: absolute;
-    top: 0; bottom: 0; left: 0;
-    transform: skew(-30deg);
+    bottom: 10px;
+    padding: 5px 50px;
+    color: black;
+    background-color: var(--bg-transparent);
+    font-size: 4rem;
+    color: white;
 }
-*/
+
+.header-content .links {
+    gap: 15px;
+}
+
+.header-content .links i {
+    font-size: 30px;
+}
 
 .project-container {  
     display: grid;
@@ -67,7 +107,41 @@ header::after {
 
 .project {
     border: 1px solid gray;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 20%);
+    box-shadow: 2px 2px 5px 1px var(--shadow);
+}
+
+.project-image {
+    height: 250px;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    font-size: 42px;
+    color: white;
+    padding: 20px;
+}
+
+#project-1 {
+    background-color: #9E1C1C;
+}
+
+#project-2 {
+    background-color: #7C75CA;
+}
+
+#project-3 {
+    background-color: #D88F39;
+}
+
+#project-4 {
+    background-color: #5E8F4D;
+}
+
+#project-5 {
+    background-color: #CA7599;
+}
+
+#project-6 {
+    background-color: #4692D9;
 }
 
 .project-details {
@@ -77,6 +151,14 @@ header::after {
     gap: 10px;
 }
 
+.project-details .links {
+    gap: 10px;
+}
+
+.project-details .links i {
+    font-size: 24px;
+}
+
 .project-header {
     display: flex;
     justify-content: space-between;
@@ -84,17 +166,55 @@ header::after {
 }
 
 footer {
-    background-color: #5F9CC9;
+    background-color: var(--bg);
 }
 
-@media screen and (500px < width <= 1000px) {
+footer img {
+    width: 100vw;
+    object-fit: cover;
+}
+
+footer p {
+    align-self: flex-start;
+}
+
+footer .links {
+    gap: 20px;
+}
+
+footer .links i {
+    font-size: 40px;
+}
+
+@media screen and (500px <= width < 1000px) {
     .project-container {
         display: grid;
         grid-template: repeat(3, 1fr) / repeat(2, 1fr);
     }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 20px;
+    }
+
+    footer h1, 
+    footer p {
+        color: white;
+    }
+
+    .footer-content {
+        align-items: start;
+    }
+
+    footer img {
+        object-fit: contain;
+        height: 320px;
+        width: 225px;
+    }
 }
 
-@media screen and (width > 1000px) {
+@media screen and (width >= 1000px) {
     .project-container {
         display: grid;
         grid-template: repeat(2, 1fr) / repeat(3, 1fr);
